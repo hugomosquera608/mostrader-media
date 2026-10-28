@@ -15,6 +15,7 @@ LUN 2 nov  8:30am REEL     La semana más cargada (ISM 10am, elecciones, empleo)
 MAR 3 nov  7:00pm CARRUSEL Elecciones de medio mandato: qué hizo el mercado en 2018 y 2022 (neutral). JOLTS 10am
 MIÉ 4 nov  8:30am REEL     "Las elecciones no mueven el mercado. La Fed sí." Reacción del NQ y del oro
 VIE 6 nov  6:00pm REEL     Informe de empleo (8:30am): ¿se enfría el empleo? (ECONOMICS:USUR)
+SÁB 7 nov  8:30am REEL     Una operación que salió mal y qué cambié (kit/material/oro_26ene_entrada_fallida_y_reentrada.png; ver kit/material/NOTAS.md)
 SÁB 7 nov  7:00pm CARRUSEL Lección 3: solicitudes de desempleo (USIJC, al revés, media de 4 semanas) y regla de Sahm (USUR)
 DOM 8 nov  6:00pm REEL CORTO Mi rutina del domingo: ¿qué cuadrante marca la semana del CPI?
 LUN 9 nov  7:00pm CARRUSEL Lección 4: los 4 cuadrantes crecimiento × inflación (USIRYY). Mañana sale la inflación
@@ -36,7 +37,8 @@ VIE 27 nov 7:00pm CARRUSEL Black Friday: qué sectores lideraron el mes (mercado
 SÁB 28 nov 8:30am REEL     Cierre del mes: en qué fase y cuadrante estamos (checklist de Notion; hoy Fase 3 y Cuadrante 2)
 DOM 29 nov 6:00pm REEL CORTO Mi rutina del domingo: cómo llego a diciembre
 LUN 30 nov 8:30am REEL     Diciembre: empleo (vie 4), Fed (mié 9) y CPI (jue 10)
-Jue 29 oct, jue 5 nov y jue 26 nov (Thanksgiving): solo historias.
+JUE 5 nov  7:00pm CARRUSEL Así operé: una venta en oro paso a paso (kit/material/oro_27ago_ejemplo_venta.png)
+Jue 29 oct y jue 26 nov (Thanksgiving): solo historias.
 Los reels de las 6:00 pm (mié 28 oct, vie 6, mar 10, jue 19, mié 25 nov) se preparan en la tarde, después del dato: la tarea de la mañana deja hechas las historias y avisa a Hugo que escriba "haz el reel de hoy" después de las 3:00 pm (o del dato).
 
 HISTORIAS (8:00 am y 4:15 pm)
@@ -60,3 +62,9 @@ B8 El VIX en 4 niveles (TVC:VIX)
 B9 Calma en el precio, cobertura en las opciones (análisis del 22 oct: IV 14,4 vs RV 8,9)
 B10 M1 deflactado: la liquidez que mueve todo (FRED:M1SL)
 Fuente de todas: Notion de Hugo, página Indicadores adelantados y Análisis oct 2026.
+
+SERIE "ASÍ OPERO" (material real de Hugo, ver kit/material/NOTAS.md)
+- Sin número de cuenta, saldo ni P&L en dinero. Sin mencionar cursos ni academias: todo con palabras de Hugo.
+- Cada 2 semanas: un carrusel "Así operé" (lectura, entrada, stop, gestión, qué aprendí) y un reel corto "La prueba" con el gráfico real.
+- Domingos en historias: "Sesgo del domingo" (qué sostiene el sesgo y qué lo cambiaría), con capturas de MRKT y notas de pre-apertura de Hugo.
+- B11 del banco: "Cómo leo la estructura antes de entrar" (kit/material/oro_04may_estructura_bajista.png).
