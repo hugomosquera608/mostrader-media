@@ -1,17 +1,43 @@
-# Plan Mostrader (@mostrader_) — 28 oct al 8 nov 2026
-Ritmo: 5 posts en el feed por semana (3 reels + 2 carruseles) + historias todos los días. Historias SIN sticker: la pregunta se responde por DM ("Respóndeme esta historia").
-Reels: plantilla avatar por capas + voz narrador 4 Andrew (+32%). Carruseles: estilo noticiero + The Economist.
-Horas (ET): reels 8:30 am (antes de la apertura), carruseles 7:00 pm, historias 8:00 am y 4:15 pm.
+# Plan Mostrader (@mostrader_), 28 oct al 30 nov 2026
+Doc del calendario: https://claude.ai/artifact/9zAbLUmskQbuSSDKRGks4u
+Ritmo: 25 posts en el feed (15 reels y 10 carruseles) + 4 o 5 historias diarias SIN stickers (las preguntas se responden por DM).
+Reels: avatar por capas + voz narrador 4 Andrew (+32%). Carruseles: estilo noticiero + The Economist + gráfico de TradingView.
+Fuentes: MRKT (sesgo y niveles), The Economist (gráficos e ilustraciones sin personas), Notion de Hugo (Indicadores adelantados 401d6732e9668177a27ad02b3f859ee8, Análisis oct 2026 401d6732e9668172b95ce57e43bc70bd, Filtros VALUG/DBC 402d6732e96681d38a57e1e7270cf125) y gráficos de TradingView (tradingview.com/chart/?symbol=TICKER).
+Fechas con (est.): confirmar el día anterior.
 
-MIÉ 28  6:00pm REEL      PROOF/EVENTO  #19 The Deadline   - La Fed decide (2pm) + esa noche Microsoft y Alphabet: NQ 29.450 / 30.100
-JUE 29  8:30am REEL      OPINION       #17 Head To Head   - Microsoft vs Alphabet: ¿justificaron el gasto en IA? mi lectura NQ
-VIE 30  7:00pm CARRUSEL  TEACH         Job B              - PCE: el dato que mira la Fed, explicado (+ The Economist)
-SÁB 31  7:00pm CARRUSEL  TEACH         Job B              - La semana en 6 slides (The Economist + MRKT)
-DOM 1   historias: encuesta "¿alcista o bajista esta semana?"
-LUN 2   8:30am REEL      TEACH         #19 The Deadline   - Semana de elecciones + ISM (lun) + empleo (vie)
-MAR 3   7:00pm CARRUSEL  TEACH         Job B              - Midterms hoy: qué hizo el mercado en 2018 y 2022 (actualizado)
-MIÉ 4   historias: resultados de las elecciones y reacción del NQ/oro
-JUE 5   8:30am REEL      OPINION       #22 Contrarian Flip - "Las elecciones no mueven el mercado. La Fed sí."
-VIE 6   7:00pm CARRUSEL  TEACH         Job B              - Informe de empleo (8:30am) con The Economist
-SÁB 7   8:30am REEL      STORY         #15 The Flop Record - una operación que salió mal y qué cambié (necesita historia real de Hugo)
-DOM 8   historias: resumen de la semana
+FEED (hora NY)
+MIÉ 28 oct 8:30am CARRUSEL Hoy decide la Fed y esta noche reportan Microsoft y Alphabet: qué mirar
+MIÉ 28 oct 6:00pm REEL     La Fed decidió + resultados de Microsoft y Alphabet (lo hace la tarea de las 4:45 pm)
+VIE 30 oct 8:30am REEL     Amazon anoche y el PCE (8:30am)
+SÁB 31 oct 7:00pm CARRUSEL Lección 1: las 4 fases del ciclo y la curva 10Y-2Y (FRED:T10Y2Y). ¿En cuál estamos?
+LUN 2 nov  8:30am REEL     La semana más cargada (ISM 10am, elecciones, empleo) + lección 2: ISM nuevos pedidos (ECONOMICS:USMNO, línea 50). Apple después del cierre
+MAR 3 nov  7:00pm CARRUSEL Elecciones de medio mandato: qué hizo el mercado en 2018 y 2022 (neutral). JOLTS 10am
+MIÉ 4 nov  8:30am REEL     "Las elecciones no mueven el mercado. La Fed sí." Reacción del NQ y del oro
+VIE 6 nov  6:00pm REEL     Informe de empleo (8:30am): ¿se enfría el empleo? (ECONOMICS:USUR)
+SÁB 7 nov  7:00pm CARRUSEL Lección 3: solicitudes de desempleo (USIJC, al revés, media de 4 semanas) y regla de Sahm (USUR)
+LUN 9 nov  7:00pm CARRUSEL Lección 4: los 4 cuadrantes crecimiento × inflación (USIRYY). Mañana sale la inflación
+MAR 10 nov 6:00pm REEL     CPI de octubre (8:30am): ¿sigue sobre 3%? Qué significa para NQ y oro
+JUE 12 nov 8:30am REEL     Lección 5: VALUG (NYSE:VALUG vs SPX). ¿Sube todo el mercado o solo 7 empresas?
+VIE 13 nov 7:00pm CARRUSEL Lección 6: DBC y cobre/oro, la inflación de las materias primas. PPI 8:30am
+SÁB 14 nov 8:30am REEL     Lección 7: mi rutina del domingo en 1 minuto (VALUG, DBC, XLY/XLP con EMA 50)
+LUN 16 nov 8:30am REEL     Semana de Nvidia, LEI y vencimientos. Ventas minoristas (est.)
+MIÉ 18 nov 7:00pm CARRUSEL Lección 9: hoy vence el VIX, el patrón contra OPEX (68–72% según la formación de Hugo; presentarlo como estadística de su curso, no como regla). Nvidia después del cierre (est.)
+JUE 19 nov 6:00pm REEL     Nvidia y el LEI (10am): el chip y la brújula
+VIE 20 nov 8:30am REEL     Día de OPEX: ¿se cumple el patrón del VIX?
+SÁB 21 nov 7:00pm CARRUSEL Lección 10: LEI y CLI, las dos brújulas (ECONOMICS:USLEI, USCLI)
+LUN 23 nov 8:30am REEL     Semana corta: PCE el miércoles y Thanksgiving
+MAR 24 nov 7:00pm CARRUSEL Lección 11: riesgo ON/OFF con XLY/XLP antes de Black Friday (XLK, XLU)
+MIÉ 25 nov 6:00pm REEL     PCE (8:30am): el dato favorito de la Fed antes de diciembre
+VIE 27 nov 7:00pm CARRUSEL Black Friday: qué sectores lideraron el mes (mercado cierra 1pm)
+SÁB 28 nov 8:30am REEL     Cierre del mes: en qué fase y cuadrante estamos (checklist de Notion; hoy Fase 3 y Cuadrante 2)
+LUN 30 nov 8:30am REEL     Diciembre: empleo (vie 4), Fed (mié 9) y CPI (jue 10)
+Jue 29 oct, jue 5 nov y jue 26 nov (Thanksgiving): solo historias.
+Los reels de las 6:00 pm (mié 28 oct, vie 6, mar 10, jue 19, mié 25 nov) se preparan en la tarde, después del dato: la tarea de la mañana deja hechas las historias y avisa a Hugo que escriba "haz el reel de hoy" después de las 3:00 pm (o del dato).
+
+HISTORIAS (8:00 am y 4:15 pm)
+Lunes: calendario de la semana y niveles MRKT | cierre
+Martes y miércoles: dato del día y sesgo MRKT NQ/ES/YM/oro | cierre y reacción
+Jueves: solicitudes de desempleo (USIJC) leídas al revés | "pregúntame lo que quieras" por DM
+Viernes: niveles MRKT y dato | resumen de la semana en 3 números
+Sábado: adelanto del post | una idea de The Economist de la semana
+Domingo: rutina VALUG, DBC, XLY/XLP en TradingView | "¿alcista o bajista esta semana?" por DM
