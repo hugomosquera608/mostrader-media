@@ -7,3 +7,8 @@ Motor de reels y carruseles. Ver plan.md para el calendario.
 3. CARRUSEL: copiar carr/build.py como plantilla (estilo noticiero, 1080x1350, avatar av_*.svg, se generan con setup; otras expresiones: node avatar.js EXPR archivo.svg), cambiar el contenido, `python3 build.py && node shot.js` (ajustar nombre/cantidad de slides en shot.js).
    - Gráficos e ilustraciones de The Economist permitidos con crédito "Fuente: The Economist". No usar fotos de personas reales.
 Reglas: usar siempre las skills ig-* (ig-reel, ig-carousel, ig-caption, ig-story, ig-human). No cambiar el nombre del perfil.
+
+## Gráficos de TradingView
+- Usa la página pública del símbolo, NO el gráfico guardado de Hugo (no cambies su layout): https://www.tradingview.com/symbols/FRED-T10Y2Y/ (el ":" del ticker pasa a "-": ECONOMICS:USIJC -> ECONOMICS-USIJC, NYSE:VALUG -> NYSE-VALUG, AMEX:XLY -> AMEX-XLY).
+- Cierra el panel lateral (ícono de lista arriba a la derecha), elige 1 año / 5 años / 10 años según la lección, mueve el cursor fuera del gráfico y captura con zoom + save_to_disk solo el área del gráfico.
+- En la slide: gráfico en una tarjeta con borde naranja, una flecha o etiqueta en el punto clave, debajo la regla de lectura del Notion de Hugo con 3 franjas (verde/naranja/rojo) y una frase en primera persona "en mi checklist esto es…". Crédito: "Gráfico: TradingView (datos FRED/fuente)". Ejemplo: carr/ejemplo_tradingview.html.
