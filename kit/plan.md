@@ -5,6 +5,7 @@
 - Historias: 4 o 5 en la mañana (tarea de 6:35 am) y 2 o 3 de cierre en la tarde (tarea de 4:45 pm).
 - Banco de reserva: la tarea de la mañana arma UNA lección del banco por día (ver abajo) hasta completar B1 a B11.
 - Fuentes siempre: MRKT, The Economist, Notion de Hugo y TradingView.
+- TRADINGVIEW (en el Chrome de Hugo en su PC con Windows, sesión iniciada): abre https://www.tradingview.com/chart/ en una pestaña nueva y usa SUS layouts guardados (menú de layouts arriba a la derecha) con sus indicadores adelantados: LEI (ECONOMICS:USLEI), CLI (ECONOMICS:USCLI), ISM nuevos pedidos (ECONOMICS:USMNO), solicitudes de desempleo (ECONOMICS:USIJC), curva 10Y-2Y (FRED:T10Y2Y), permisos de construcción (ECONOMICS:USBP), VALUG, DBC, XLY/XLP con EMA 50 y VIX. No cambies ni guardes sus layouts: solo lee y captura. Usa al menos UN gráfico de TradingView por día (carrusel, reel o historias) con el crédito "Gráfico: TradingView", explicando en palabras simples qué dice el indicador.
 
 # Plan Mostrader (@mostrader_), 28 oct al 30 nov 2026
 Doc del calendario: https://claude.ai/artifact/9zAbLUmskQbuSSDKRGks4u
