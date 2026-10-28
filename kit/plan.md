@@ -1,3 +1,11 @@
+# REGLAS VIGENTES (desde el jue 29 oct 2026, mandan sobre el resto de este archivo)
+- 8:30 am ET, lun a dom: UNA publicación en el feed que se ALTERNA cada día entre CARRUSEL y REEL (nunca el mismo formato dos días seguidos). Para saber qué toca, mira en Metricool la publicación de feed de la mañana anterior: si fue carrusel, hoy va reel, y al revés. El 28 oct fue carrusel, así que el 29 oct va reel.
+- Usa los TEMAS del calendario de abajo como guía, pero adapta el formato a la alternancia.
+- 6:00 pm ET, lun a vie: REEL DIARIO "Cómo terminó el día" (cierre de NQ, ES, YM y oro, datos o noticias del día, resultados de empresas después del cierre y qué viene mañana). Lo prepara la tarea de las 4:45 pm junto con 2 o 3 historias de cierre.
+- Historias: 4 o 5 en la mañana (tarea de 6:35 am) y 2 o 3 de cierre en la tarde (tarea de 4:45 pm).
+- Banco de reserva: la tarea de la mañana arma UNA lección del banco por día (ver abajo) hasta completar B1 a B11.
+- Fuentes siempre: MRKT, The Economist, Notion de Hugo y TradingView.
+
 # Plan Mostrader (@mostrader_), 28 oct al 30 nov 2026
 Doc del calendario: https://claude.ai/artifact/9zAbLUmskQbuSSDKRGks4u
 Ritmo: 30 posts en el feed (20 reels y 10 carruseles, con un reel corto cada domingo) + 4 o 5 historias diarias SIN stickers (las preguntas se responden por DM).
