@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Poppins;font-weight:500;src:url(fonts/poppins-latin-500-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:600;src:url(fonts/poppins-latin-600-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:700;src:url(fonts/poppins-latin-700-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:800;src:url(fonts/poppins-latin-800-normal.woff2)}
+@font-face{font-family:SpaceMono;font-weight:400;src:url(fonts/space-mono-latin-400-normal.woff2)}
+@font-face{font-family:SpaceMono;font-weight:700;src:url(fonts/space-mono-latin-700-normal.woff2)}
+@font-face{font-family:SerifIt;font-style:normal;src:url(fonts/instrument-serif-latin-400-italic.woff2),url(fonts/instrument-serif-latin-ext-400-italic.woff2)}
+:root{--bg:#F4EDE6;--or:#E2723D;--ink:#141414;--grey:#6b6660;--line:#DFD9C9}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Poppins;color:var(--ink);
+ background-color:var(--bg);
+ background-image:linear-gradient(rgba(0,0,0,.035) 2px,transparent 2px),linear-gradient(90deg,rgba(0,0,0,.035) 2px,transparent 2px);
+ background-size:90px 90px;background-position:-34px -14px}
+#hdr{position:absolute;left:70px;right:70px;top:66px;height:80px;z-index:50}
+#handle{position:absolute;left:0;top:14px;font:700 34px SpaceMono;letter-spacing:-1px}
+#date{position:absolute;right:0;top:0;height:56px;padding:0 20px;border:3px solid var(--ink);border-radius:30px;font:400 29px SpaceMono;line-height:50px;letter-spacing:1px}
+#bar{position:absolute;left:0;right:0;top:64px;height:6px;border-radius:3px;background:var(--line)}
+#barfill{position:absolute;left:0;top:0;height:6px;border-radius:3px;background:var(--or);width:0}
+#title{position:absolute;left:70px;right:60px;top:180px;z-index:5}
+#title .a{font:800 104px/1.05 Poppins;letter-spacing:-4px}
+#title .b{font:400 132px/1 SerifIt;letter-spacing:-2px;position:relative;display:inline-block;padding:0 6px;margin-left:14px}
+#title .b::after{content:"";position:absolute;left:-4px;right:-4px;bottom:16px;height:22px;background:var(--or);opacity:.92;border-radius:3px;z-index:-1;transform-origin:left;transform:scaleX(var(--ul,1))}
+#body{position:absolute;left:70px;right:70px;top:470px;height:640px}
+.card{position:absolute;background:#fff;border:4px solid var(--ink);box-shadow:12px 12px 0 var(--ink);padding:36px 32px}
+.card .lab{font:400 27px SpaceMono;color:#555;letter-spacing:1px;text-transform:uppercase}
+.card .val{font:700 96px/1.15 SpaceMono;color:var(--or);letter-spacing:-3px}
+.card .sub{font:500 33px Poppins}
+.rows .row{position:absolute;left:0;right:0;height:150px;border-top:3px solid var(--or)}
+.rows .row .v{position:absolute;left:0;top:34px;font:700 64px SpaceMono;color:var(--or);letter-spacing:-2px}
+.rows .row .t{position:absolute;left:400px;right:0;top:30px;font:500 31px/1.3 Poppins}
+.panel{position:absolute;left:0;right:0;top:0;height:560px;background:#fff;border:4px solid var(--ink);box-shadow:12px 12px 0 var(--ink)}
+.panel .lab{position:absolute;left:30px;top:22px;font:400 24px SpaceMono;color:#777}
+.pill{position:absolute;font:700 27px SpaceMono;padding:6px 16px;border-radius:24px;white-space:nowrap}
+#av{position:absolute;z-index:6;transform-origin:50% 80%}#av svg{position:absolute;left:0;top:0;width:100%;height:100%}#av .ring{position:absolute;left:-6px;top:-6px;right:-6px;bottom:-6px;border-radius:50%;border:2px dotted #444;opacity:.6}
+#sub{position:absolute;left:0;right:0;top:1690px;text-align:center;z-index:7}
+#sub span.box{display:inline-block;background:#131313;color:#fff;font:700 54px Poppins;padding:14px 36px;border-radius:12px;letter-spacing:-.5px}
+#sub em{font-style:normal;background:var(--or);padding:0 10px;border-radius:6px}
+#wipe{position:absolute;left:0;right:0;top:0;height:1920px;background:var(--or);z-index:40;transform:translateY(100%)}
+#wipe .edge{position:absolute;left:0;right:0;top:0;height:40px;background:#111}
+</style></head>
+<body><div id="stage">
+<div id="hdr"><div id="handle">@mostrader_</div><div id="date"></div><div id="bar"><div id="barfill"></div></div></div>
+<div id="title"></div><div id="body"></div><div id="av"></div><div id="sub"></div>
+<div id="wipe"><div class="edge"></div></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const ease=x=>{x=clamp(x);return 1-Math.pow(1-x,3)};
+const back=x=>{x=clamp(x);const c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+let SPEC=null;
+function fmt(v,dec,sep){let s=Math.abs(v).toFixed(dec);let [i,d]=s.split('.');i=i.replace(/\B(?=(\d{3})+(?!\d))/g,sep==','?'.':',');return (v<0?'-':'')+i+(d?(sep==','?',':'.')+d:'');}
+// value string like "+1,18%" "29.786" "4,99%" "194K" "2:00 pm"
+function countUp(str,p){const m=str.match(/^([^\d-]*)(-?[\d.,]+)(.*)$/);if(!m||/:/.test(str))return str;
+ let num=m[2];const dec=(num.split(',')[1]||'').length;const n=parseFloat(num.replace(/\./g,'').replace(',','.'));
+ if(isNaN(n))return str;return m[1]+fmt(n*ease(p),dec,',')+m[3];}
+
+/* ---------- AVATAR por capas (dibujo original vectorial) ---------- */
+const AV_BASE=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="150 210 780 780" width="100%" height="100%"> <defs> <clipPath id="circ"><circle cx="540" cy="600" r="390"/></clipPath> <clipPath id="face"><path d="M398 465 C396 362 455 298 540 298 C625 298 684 362 682 465 C682 565 650 638 592 666 C566 678 514 678 488 666 C430 638 398 565 398 465 Z"/></clipPath> </defs> <circle cx="540" cy="600" r="390" fill="#E2733F"/> <g clip-path="url(#circ)" stroke="#141414" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"> <path d="M220 1080 C230 880 320 760 450 728 L630 728 C760 760 850 880 860 1080 Z" fill="#1C1C1E"/> <path d="M488 640 L488 760 Q540 790 592 760 L592 640 Z" fill="#C98C5E"/> <path d="M466 730 Q540 800 614 730 L640 740 L640 830 L440 830 L440 740 Z" fill="#1C1C1E" stroke="none"/> <path d="M470 732 Q540 800 610 732" fill="none" stroke-width="7"/> </g> <g transform="translate(540 560) scale(1.07) translate(-540 -560)"><g stroke="#141414" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"> <ellipse cx="398" cy="488" rx="24" ry="38" fill="#C98C5E"/> <ellipse cx="682" cy="488" rx="24" ry="38" fill="#C98C5E"/> <path d="M398 465 C396 362 455 298 540 298 C625 298 684 362 682 465 C682 565 650 638 592 666 C566 678 514 678 488 666 C430 638 398 565 398 465 Z" fill="#C98C5E"/> </g> <g clip-path="url(#face)"> <path d="M380 420 C380 330 450 280 540 280 C630 280 700 330 700 420 C690 392 662 368 625 360 C598 354 568 352 540 352 C512 352 482 354 455 360 C418 368 390 392 380 420 Z" fill="#1E1A18" opacity="0.9"/> <path d="M380 400 C392 430 398 455 404 480 L380 480 Z" fill="#1E1A18" opacity="0.4"/> <path d="M700 400 C688 430 682 455 676 480 L700 480 Z" fill="#1E1A18" opacity="0.4"/> <path d="M380 492 C420 560 470 556 500 552 C520 548 530 550 540 553 C550 550 560 548 580 552 C610 556 660 560 700 492 L700 720 L380 720 Z" fill="#2A211C" opacity="0.82"/> </g> <path d="M398 465 C396 362 455 298 540 298 C625 298 684 362 682 465 C682 565 650 638 592 666 C566 678 514 678 488 666 C430 638 398 565 398 465 Z" fill="none" stroke="#141414" stroke-width="8"/>
+<g id="BROWS"></g><g id="EYES"></g>
+<g fill="none" stroke="#141414" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"> <rect x="422" y="424" width="102" height="64" rx="10"/> <rect x="556" y="424" width="102" height="64" rx="10"/> <path d="M524 446 Q540 438 556 446"/> <path d="M422 440 L400 434"/> <path d="M658 440 L680 434"/> </g> <path d="M500 434 L512 446" stroke="#F4F0E8" stroke-width="5" stroke-linecap="round" opacity="0.7"/> <path d="M632 434 L644 446" stroke="#F4F0E8" stroke-width="5" stroke-linecap="round" opacity="0.7"/> <path d="M540 498 Q530 524 528 534 Q540 541 552 534" fill="none" stroke="#141414" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="MOUTH"></g></g></svg>`;
+const K='fill="none" stroke="#141414" stroke-linecap="round"';
+const EYES={
+ smile:`<g ${K} stroke-width="7"><path d="M455 458 Q473 442 491 458"/><path d="M589 458 Q607 442 625 458"/></g>`,
+ open:`<g fill="#141414"><circle cx="473" cy="456" r="10"/><circle cx="607" cy="456" r="10"/></g>`,
+ wide:`<g fill="#141414"><circle cx="473" cy="455" r="12"/><circle cx="607" cy="455" r="12"/></g>`,
+ blink:`<g ${K} stroke-width="7"><path d="M459 457 L487 457"/><path d="M593 457 L621 457"/></g>`,
+ wink:`<g><circle cx="473" cy="456" r="10" fill="#141414"/><path d="M589 458 Q607 466 625 458" ${K} stroke-width="7"/></g>`};
+const BROWS={
+ normal:`<g ${K} stroke-width="10"><path d="M440 410 Q470 398 505 406"/><path d="M575 406 Q610 398 640 410"/></g>`,
+ raised:`<g ${K} stroke-width="10"><path d="M440 398 Q470 382 505 392"/><path d="M575 392 Q610 382 640 398"/></g>`,
+ worried:`<g ${K} stroke-width="10"><path d="M440 414 Q474 406 506 390"/><path d="M574 390 Q606 406 640 414"/></g>`,
+ skeptic:`<g ${K} stroke-width="10"><path d="M440 412 Q470 406 505 410"/><path d="M575 396 Q610 382 640 398"/></g>`,
+ focus:`<g ${K} stroke-width="10"><path d="M440 404 Q472 404 506 412"/><path d="M574 412 Q608 404 640 404"/></g>`};
+const MOUTH={
+ smile:`<path d="M482 572 Q540 632 598 572 Q540 586 482 572 Z" fill="#FFFFFF" stroke="#141414" stroke-width="7" stroke-linejoin="round"/>`,
+ rest:`<path d="M498 586 Q540 606 582 586" ${K} stroke-width="7"/>`,
+ flat:`<path d="M505 592 Q540 597 575 592" ${K} stroke-width="7"/>`,
+ frown:`<path d="M502 600 Q540 584 578 600" ${K} stroke-width="7"/>`,
+ O:`<ellipse cx="540" cy="594" rx="18" ry="24" fill="#3A1A16" stroke="#141414" stroke-width="7"/>`,
+ s1:`<path d="M500 584 Q540 604 580 584 Q540 594 500 584 Z" fill="#3A1A16" stroke="#141414" stroke-width="7" stroke-linejoin="round"/>`,
+ s2:`<path d="M494 580 Q540 616 586 580 Q540 590 494 580 Z" fill="#3A1A16" stroke="#141414" stroke-width="7" stroke-linejoin="round"/><path d="M506 584 Q540 590 574 584" stroke="#fff" stroke-width="6" fill="none"/>`,
+ s3:`<path d="M488 576 Q540 630 592 576 Q540 588 488 576 Z" fill="#3A1A16" stroke="#141414" stroke-width="7" stroke-linejoin="round"/><path d="M500 580 Q540 588 580 580" stroke="#fff" stroke-width="7" fill="none"/>`,
+ h1:`<path d="M486 574 Q540 616 594 574 Q540 584 486 574 Z" fill="#FFFFFF" stroke="#141414" stroke-width="7" stroke-linejoin="round"/>`,
+ h2:`<path d="M482 572 Q540 640 598 572 Q540 586 482 572 Z" fill="#FFFFFF" stroke="#141414" stroke-width="7" stroke-linejoin="round"/>`};
+const EXPR={ // ojos, cejas, boca en reposo, familia de boca al hablar
+ neutral:['open','normal','rest','s'], happy:['smile','normal','smile','h'], smile:['open','normal','smile','h'],
+ surprised:['wide','raised','O','s'], skeptic:['open','skeptic','flat','s'], worried:['open','worried','frown','s'],
+ wink:['wink','normal','smile','h'], serious:['open','focus','flat','s'], laugh:['smile','raised','h2','h']};
+function avatarSVG(expr,t,amp){
+ const E=EXPR[expr]||EXPR.neutral;let eyes=E[0];
+ const ph=(t+0.7)%3.6; if((eyes==='open'||eyes==='wide')&&ph<0.13)eyes='blink';
+ let m=E[2];
+ if(amp>0.12){ if(E[3]==='h')m=amp>0.45?'h2':'h1'; else m=amp>0.6?'s3':amp>0.3?'s2':'s1'; }
+ return AV_BASE.replace('<g id="BROWS"></g>',BROWS[E[1]]).replace('<g id="EYES"></g>',EYES[eyes]).replace('<g id="MOUTH"></g>',MOUTH[m]);}
+/* ---------- BLOCKS ---------- */
+function drawCards(b,lt){
+ const W=440,H=250,G=40;let h='';
+ b.items.forEach((it,i)=>{const p=ease((lt-0.15-i*0.35)/0.45);if(p<=0)return;
+  const x=(i%2)*(W+G),y=Math.floor(i/2)*(H+G)+ (b.offset||0);
+  h+=`<div class="card" style="left:${x}px;top:${y+(1-p)*40}px;width:${W}px;height:${H}px;opacity:${p}">
+  <div class="lab">${it.label}</div><div class="val">${countUp(it.value,(lt-0.15-i*0.35)/0.9)}</div><div class="sub">${it.sub||''}</div></div>`});
+ return h;}
+function drawRows(b,lt){let h='<div class="rows">';
+ b.items.forEach((it,i)=>{const p=ease((lt-0.2-i*(b.stagger||0.6))/0.5);if(p<=0)return;
+  h+=`<div class="row" style="top:${i*170+30}px;opacity:${p};transform:translateX(${(1-p)*-40}px)"><div class="v">${countUp(it.value,(lt-0.2-i*(b.stagger||0.6))/0.8)}</div><div class="t">${it.text}</div></div>`});
+ return h+'</div>';}
+function drawBars(b,lt){
+ let h=`<div class="panel" style="height:${130+b.items.length*120}px"><div class="lab">${b.label}</div>`;
+ const max=Math.max(...b.items.map(i=>Math.abs(i.value)));
+ b.items.forEach((it,i)=>{const p=ease((lt-0.3-i*0.4)/0.7);const w=Math.max(6,470*Math.abs(it.value)/max*p);
+  const y=100+i*120;
+  h+=`<div style="position:absolute;left:30px;top:${y+12}px;font:700 30px SpaceMono">${it.name}</div>
+  <div style="position:absolute;left:250px;top:${y}px;height:58px;width:${w}px;background:${it.color||'#E2723D'};border:3px solid #141414"></div>
+  <div style="position:absolute;left:${270+w}px;top:${y+10}px;font:700 32px SpaceMono;color:${it.color=='#141414'?'#141414':'#E2723D'};opacity:${p}">${it.text}</div>`});
+ h+='</div>';
+ if(b.note){const p=ease((lt-b.noteAt)/0.4);if(p>0)h+=`<div class="pill" style="left:50%;top:${150+b.items.length*120}px;transform:translateX(-50%) scale(${0.8+0.2*p});opacity:${p};background:#141414;color:#fff">${b.note}</div>`}
+ return h;}
+function drawLevels(b,lt){
+ // price ladder: no invented history, only levels and current price
+ const top=b.hi,bot=b.lo,H=440,y0=80;const Y=v=>y0+(top-v)/(top-bot)*H;
+ let h=`<div class="panel"><div class="lab">${b.label}</div>`;
+ b.levels.forEach((L,i)=>{const p=ease((lt-L.at)/0.5);if(p<=0)return;const y=Y(L.value);
+  h+=`<div style="position:absolute;left:30px;top:${y}px;width:${880*p}px;border-top:3px dashed ${L.color||'#999'}"></div>
+  <div class="pill" style="right:24px;top:${y-24}px;opacity:${p};background:${L.bg||'#fff'};color:${L.fg||'#141414'};border:3px solid ${L.color||'#141414'}">${L.text}</div>`});
+ if(b.price){const p=ease((lt-b.price.at)/0.5);const y=Y(b.price.value);
+  if(p>0)h+=`<div style="position:absolute;left:${80}px;top:${y-16}px;width:32px;height:32px;border-radius:50%;background:#E2723D;border:4px solid #141414;transform:scale(${back(p)})"></div>
+  <div class="pill" style="left:130px;top:${y-24}px;background:#141414;color:#fff;opacity:${p}">${b.price.text}</div>`;
+  (b.arrows||[]).forEach(A=>{const q=ease((lt-A.at)/0.6);if(q<=0)return;const y2=Y(A.to);const len=(y2-y)*q;
+   h+=`<div style="position:absolute;left:94px;top:${Math.min(y,y+len)}px;width:5px;height:${Math.abs(len)}px;background:${A.color}"></div>
+   <div style="position:absolute;left:84px;top:${y+len-(A.to>b.price.value?0:24)}px;width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;${A.to>b.price.value?'border-bottom':'border-top'}:24px solid ${A.color};opacity:${q}"></div>`});}
+ return h+'</div>';}
+
+function render(t){
+ const S=SPEC;$('barfill').style.width=(clamp(t/S.duration)*100)+'%';
+ // scene
+ let sc=S.scenes.find(s=>t>=s.start&&t<s.end)||S.scenes[S.scenes.length-1];const lt=t-sc.start;
+ const tp=ease(lt/0.5);
+ $('title').innerHTML=`<span class="a" style="opacity:${tp}">${sc.title[0]}</span> <span class="b" style="opacity:${ease((lt-0.25)/0.5)};--ul:${ease((lt-0.45)/0.5)}">${sc.title[1]}</span>`;
+ $('title').style.transform=`translateY(${(1-tp)*30}px)`;
+ let h='';(sc.blocks||[]).forEach(b=>{const bl=lt-(b.at||0);if(bl<0)return;
+  h+=b.type=='cards'?drawCards(b,bl):b.type=='rows'?drawRows(b,bl):b.type=='bars'?drawBars(b,bl):drawLevels(b,bl)});
+ $('body').innerHTML=h;
+ // subtitle
+ const s=S.subs.find(x=>t>=x.start&&t<x.end);
+ if(s){const p=ease((t-s.start)/0.12);let txt=s.text;(s.hl||[]).forEach(w=>{txt=txt.replace(w,`<em>${w}</em>`)});
+  $('sub').innerHTML=`<span class="box" style="transform:scale(${0.92+0.08*p})">${txt}</span>`}else $('sub').innerHTML='';
+ // avatar (sin saltos: solo respiración suave; tamaño/posición por escena con transición lenta)
+ let ex='neutral';(sc.expr||[]).forEach(e=>{if(lt>=e.at)ex=e.e});
+ const fi=Math.min(S.env.length-1,Math.max(0,Math.round(t*S.fps)));const amp=S.env[fi]||0;
+ const P=sc.pose||{x:540,y:1340,s:400};const prev=S.scenes[S.scenes.indexOf(sc)-1];const P0=(prev&&prev.pose)||P;
+ const k=ease(lt/0.9);const x=P0.x+(P.x-P0.x)*k,y=P0.y+(P.y-P0.y)*k,sz=P0.s+(P.s-P0.s)*k;
+ const br=Math.sin(t*1.6);
+ const av=$('av');av.style.left=(x-sz/2)+'px';av.style.top=(y-sz/2)+'px';av.style.width=sz+'px';av.style.height=sz+'px';
+ av.style.transform=`translateY(${br*3}px) scale(${1+br*0.006})`;
+ const key=ex+'|'+avatarSVG.length;const svg=avatarSVG(ex,t,amp);if(av.dataset.s!==svg){av.innerHTML='<div class="ring"></div>'+svg;av.dataset.s=svg}
+ // wipe
+ let wy=100;(S.wipes||[]).forEach(w=>{const d=t-w;if(d>-0.35&&d<0.35){wy=d<0?(1-ease((d+0.35)/0.35))*100:-ease(d/0.35)*100}});
+ $('wipe').style.transform=`translateY(${wy}%)`;
+}
+window.setup=async spec=>{SPEC=spec;spec.env=spec.env||[];$('date').textContent=spec.date;};
+window.seek=t=>render(t);
+</script></body></html>
