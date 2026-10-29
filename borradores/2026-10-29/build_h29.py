@@ -31,6 +31,11 @@ F.append("""<div class="s"><div class="tag">HOY · 8:30 AM</div><div class="h">S
 <div class="row"><b>3,2%</b><span>PIB del 3T, esperado (anualizado)</span></div>
 <div class="row"><b>3,1%</b><span>PCE núcleo de septiembre, esperado (anual)</span></div>
 <div class="row"><b>Tarde</b><span>Después del cierre reporta Amazon</span></div></div></div>""")
+F.append("""<div class="s dark"><div class="tag">MI LECTURA · SEMÁFORO</div><div class="h" style="font-size:88px">Economía fuerte. <em>Inflación, el problema.</em></div><div style="margin-top:40px">
+<div class="row" style="border-color:#4CAF50"><b style="color:#4CAF50">197K</b><span>Solicitudes de desempleo. Bajo 220K = muy sano</span></div>
+<div class="row" style="border-color:#E2723D"><b>55,3</b><span>ISM nuevos pedidos. Sobre 50 = expansión</span></div>
+<div class="row" style="border-color:#E5484D"><b style="color:#E5484D">3,7%</b><span>Inflación. Sobre 3% y subiendo = presión para el NQ</span></div></div>
+<div style="font:400 22px M;opacity:.6;margin-top:30px">Mi análisis del 21 oct. Datos de mis indicadores adelantados.</div></div>""")
 F.append("""<div class="s org"><div class="tag">TU TURNO</div><div class="h" style="font-size:96px">NQ: ¿llega al objetivo o pierde el apoyo?</div>
 <div style="font:600 40px/1.35 P;margin-top:40px">Mis niveles de ayer: objetivo 30.250 · apoyo 29.600.<br>Los reviso con la apertura.</div><div style="position:absolute;left:90px;right:90px;top:1180px;background:#141414;color:#F4EDE6;padding:44px 50px;border-radius:24px;font:700 54px/1.25 P">▲ 30.250 &nbsp;o&nbsp; ▼ 29.600<div style="font:500 36px P;margin-top:14px;color:#E2723D">Respóndeme esta historia con tu número.</div></div>
 <div class="foot" style="bottom:300px">Contenido educativo, no es recomendación financiera.</div></div>""")
